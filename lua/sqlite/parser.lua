@@ -126,7 +126,7 @@ local pvalues = function(defs, kv)
   local keys = {}
   for k, v in u.opairs(defs) do
     if type(v) == "string" and v:match "^[%S]+%(.*%)$" then
-      tinsert(keys, v)
+      tinsert(keys, "'" .. v:gsub("'", "''") .. "'")
     else
       tinsert(keys, ":" .. k)
     end
